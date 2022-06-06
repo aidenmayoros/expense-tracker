@@ -7,12 +7,9 @@ import {
 	useLocation,
 	withRouter,
 } from "react-router-dom";
-import Students from "./pages/Students";
-import Parents from "./pages/Parents";
-import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
 import { useState } from "react";
 import Navigation from "./components/Navigation";
+import SignIn from "./pages/LoginPage";
 import Box from "@mui/material/Box";
 
 function App() {
@@ -23,14 +20,13 @@ function App() {
 			<Box style={{ display: "flex" }}>
 				<Navigation />
 				<Routes>
-					<Route path='/login' element={<LoginPage user={setUser} />} />
+					<Route path='/login' element={<SignIn />} />
 					<Route
 						path='/forgot-password'
 						element={<div>In construction...</div>}
 					/>
-					<Route path='/register' element={<RegisterPage user={setUser} />} />
-					<Route path='/students' element={<Students />} />
-					<Route path='/parents' element={<Parents />} />
+					<Route path='/register' element={<div>In construction...</div>} />
+					<Route path='/home' element={<div>In construction...</div>} />
 				</Routes>
 			</Box>
 		</Router>
