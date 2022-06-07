@@ -10,6 +10,7 @@ import {
 import { useState } from "react";
 import Navigation from "./components/Navigation";
 import SignIn from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
 import Box from "@mui/material/Box";
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
 						path='/forgot-password'
 						element={<div>In construction...</div>}
 					/>
-					<Route path='/register' element={<div>In construction...</div>} />
+					<Route path='/register' element={<RegisterPage />} />
 					<Route path='/home' element={<div>In construction...</div>} />
 				</Routes>
 			</Box>

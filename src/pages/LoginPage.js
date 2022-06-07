@@ -88,6 +88,7 @@ export default function SignIn() {
 							name='email'
 							autoComplete='email'
 							autoFocus
+							onChange={(e) => setEmail(e.target.value)}
 						/>
 						<TextField
 							margin='normal'
@@ -98,6 +99,7 @@ export default function SignIn() {
 							type='password'
 							id='password'
 							autoComplete='current-password'
+							onChange={(e) => setPassword(e.target.value)}
 						/>
 						<FormControlLabel
 							control={<Checkbox value='remember' color='primary' />}
@@ -117,7 +119,7 @@ export default function SignIn() {
 								</Link>
 							</Grid>
 							<Grid item>
-								<Link href='#' variant='body2'>
+								<Link variant='body2' href='/register'>
 									{"Don't have an account? Sign Up"}
 								</Link>
 							</Grid>
