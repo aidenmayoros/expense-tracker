@@ -43,18 +43,18 @@ function ErrorMessage() {
 
 const theme = createTheme();
 
-export default function SignIn() {
+export default function SignIn({ updateUser }) {
 	let navigate = useNavigate();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [showErrorMessage, setShowErrorMessage] = useState(false);
 
-	const handleSubmit = (event) => {
+	const handleSubmit = () => {
 		if (email === "" || password === "") {
-			event.preventDefault();
 			setShowErrorMessage(true);
 			return;
 		}
+		updateUser({ email: email, password: password });
 		navigate("/home");
 	};
 
@@ -74,17 +74,13 @@ export default function SignIn() {
 						Sign in
 					</Typography>
 					{showErrorMessage ? <ErrorMessage /> : <span></span>}
-					<Box
-						component='form'
-						onSubmit={handleSubmit}
-						noValidate
-						sx={{ mt: 1 }}>
+					<Box noValidate sx={{ mt: 1 }}>
 						<TextField
 							margin='normal'
 							required
 							fullWidth
 							id='email'
-							label='Email Address'
+							label='Email or Username'
 							name='email'
 							autoComplete='email'
 							autoFocus
@@ -106,10 +102,10 @@ export default function SignIn() {
 							label='Remember me'
 						/>
 						<Button
-							type='submit'
 							fullWidth
 							variant='contained'
-							sx={{ mt: 3, mb: 2 }}>
+							sx={{ mt: 3, mb: 2 }}
+							onClick={handleSubmit}>
 							Sign In
 						</Button>
 						<Grid container>

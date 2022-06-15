@@ -1,11 +1,11 @@
 html {
-  height: 100vh;
+	height: 100vh;
 }
 
 body {
-  height: inherit;
+	height: inherit;
 }
 
 #root {
-  height: inherit;
+	height: inherit;
 }
