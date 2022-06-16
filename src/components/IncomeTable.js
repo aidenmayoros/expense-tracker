@@ -7,6 +7,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { faker } from "@faker-js/faker";
+import BasicModal from "../components/BasicModal";
 
 function createData(incomeAmount, incomeType, incomeDate) {
 	return {
@@ -20,9 +21,17 @@ const rows = new Array(5).fill(null).map(() => {
 	return createData(
 		faker.finance.amount(1500, 2000, 2, "$"),
 		faker.finance.transactionType(),
-		faker.date.weekday()
+		faker.date.recent(30).toISOString().slice(0, 10)
 	);
 });
+
+const totalIncome = () => {
+	return rows.reduce((previousValue, currentValue) => {
+		return (
+			previousValue + parseFloat(currentValue.incomeAmount.replace("$", ""))
+		);
+	}, 0);
+};
 
 export default function BasicTable() {
 	return (
@@ -47,6 +56,9 @@ export default function BasicTable() {
 							</TableRow>
 						);
 					})}
+					<TableRow>
+						<TableCell sx={{ border: 0 }}>Total: {totalIncome()}</TableCell>
+					</TableRow>
 				</TableBody>
 			</Table>
 		</TableContainer>

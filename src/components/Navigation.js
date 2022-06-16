@@ -15,13 +15,14 @@ import PaidIcon from "@mui/icons-material/Paid";
 import MoneyOffIcon from "@mui/icons-material/MoneyOff";
 import AccountMenu from "./AccountMenu";
 
-const drawerWidth = 240;
+const drawerWidth = 340;
 
 export default function PermanentDrawerLeft({ user, updateUser }) {
 	let navigate = useNavigate();
 	const { pathname } = useLocation();
 
 	const shouldHideNavigation = [
+		"/",
 		"/login",
 		"/forgot-password",
 		"/register",
