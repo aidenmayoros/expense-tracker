@@ -57,7 +57,9 @@ export default function BasicTable() {
 						);
 					})}
 					<TableRow>
-						<TableCell sx={{ border: 0 }}>Total: {totalIncome()}</TableCell>
+						<TableCell sx={{ border: 0 }}>
+							Total: ${totalIncome().toFixed(2)}
+						</TableCell>
 					</TableRow>
 				</TableBody>
 			</Table>

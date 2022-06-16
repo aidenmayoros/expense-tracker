@@ -12,6 +12,7 @@ import SignIn from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import Box from "@mui/material/Box";
 import HomePage from "./pages/HomePage";
+import NewIncome from "./pages/NewIncome";
 
 function App() {
 	const [user, setUser] = useState("");
@@ -20,22 +21,28 @@ function App() {
 		<Router>
 			<Box style={{ display: "flex", justifyContent: "center", padding: "0" }}>
 				<Navigation user={user} updateUser={setUser} />
-				<Routes>
-					<Route path='/' element={<Navigate to='/login' />} />
-					<Route path='/login' element={<SignIn updateUser={setUser} />} />
-					<Route
-						path='/forgot-password'
-						element={<div>In construction...</div>}
-					/>
-					<Route
-						path='/register'
-						element={<RegisterPage user={user} updateUser={setUser} />}
-					/>
-					<Route
-						path='/home'
-						element={<HomePage user={user} updateUser={setUser} />}
-					/>
-				</Routes>
+				{user === "" ? (
+					<Routes>
+						<Route path='/login' element={<SignIn updateUser={setUser} />} />
+						<Route path='*' element={<Navigate to='/login' replace />} />
+					</Routes>
+				) : (
+					<Routes>
+						<Route
+							path='/home'
+							element={<HomePage user={user} updateUser={setUser} />}
+						/>
+						<Route
+							path='/forgot-password'
+							element={<div>In construction...</div>}
+						/>
+						<Route
+							path='/register'
+							element={<RegisterPage user={user} updateUser={setUser} />}
+						/>
+						<Route path='/income/new' element={<NewIncome />} />
+					</Routes>
+				)}
 			</Box>
 		</Router>
 	);

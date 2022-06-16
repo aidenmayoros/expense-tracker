@@ -25,7 +25,7 @@ export default function AccountMenu({ img, user, updateUser }) {
 	};
 
 	const handleLogout = () => {
-		updateUser({});
+		updateUser("");
 		navigate("/login");
 	};
 
