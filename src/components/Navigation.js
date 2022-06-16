@@ -7,22 +7,22 @@ import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import PaidIcon from "@mui/icons-material/Paid";
-import MoneyOffIcon from "@mui/icons-material/MoneyOff";
 import AccountMenu from "./AccountMenu";
+import HomeIcon from "@mui/icons-material/Home";
 
 const drawerWidth = 340;
 
 export default function PermanentDrawerLeft({ user, updateUser }) {
 	let navigate = useNavigate();
+	function returnToHomePage() {
+		navigate("/home");
+	}
 	const { pathname } = useLocation();
 
 	const shouldHideNavigation = [
-		"/",
 		"/login",
 		"/forgot-password",
 		"/register",
@@ -56,19 +56,9 @@ export default function PermanentDrawerLeft({ user, updateUser }) {
 				<AccountMenu user={user} updateUser={updateUser} />
 				<List>
 					<ListItem disablePadding>
-						<ListItemButton>
-							<ListItemIcon>
-								<PaidIcon />
-							</ListItemIcon>
-							<ListItemText primary={"All Income"} />
-						</ListItemButton>
-					</ListItem>
-					<ListItem disablePadding>
-						<ListItemButton>
-							<ListItemIcon>
-								<MoneyOffIcon />
-							</ListItemIcon>
-							<ListItemText primary={"All Expenses"} />
+						<ListItemButton onClick={returnToHomePage}>
+							<HomeIcon sx={{ mr: 2 }} />
+							<ListItemText primary={"Home"} />
 						</ListItemButton>
 					</ListItem>
 				</List>
