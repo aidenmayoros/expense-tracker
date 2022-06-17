@@ -7,7 +7,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
-export default function BasicTable({ rows, totalIncome }) {
+export default function BasicTable({ rows, totalExpenses }) {
 	return (
 		<TableContainer component={Paper}>
 			<Table sx={{ minWidth: 650 }} aria-label='simple table'>
@@ -32,7 +32,7 @@ export default function BasicTable({ rows, totalIncome }) {
 					})}
 					<TableRow>
 						<TableCell sx={{ border: 0 }}>
-							Total: ${totalIncome.toFixed(2)}
+							Total: ${totalExpenses.toFixed(2)}
 						</TableCell>
 					</TableRow>
 				</TableBody>

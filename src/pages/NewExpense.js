@@ -22,9 +22,9 @@ function ErrorMessage() {
 	);
 }
 
-export default function NewIncome() {
-	const [incomeType, setIncomeType] = useState("");
-	const [incomeAmount, setIncomeAmount] = useState("");
+export default function NewExpense() {
+	const [expenseType, setExpenseType] = useState("");
+	const [expenseAmount, setExpenseAmount] = useState("");
 	const [showErrorMessage, setShowErrorMessage] = useState(false);
 
 	let navigate = useNavigate();
@@ -33,7 +33,7 @@ export default function NewIncome() {
 	}
 
 	function handleSubmit() {
-		if (incomeAmount === "" || incomeType === "") {
+		if (expenseAmount === "" || expenseType === "") {
 			setShowErrorMessage(true);
 			return;
 		}
@@ -56,7 +56,7 @@ export default function NewIncome() {
 						alignItems: "center",
 					}}>
 					<Typography component='h1' variant='h5' sx={{ ml: 1 }}>
-						<b>Add Income</b>
+						<b>Add Expense</b>
 					</Typography>
 					{showErrorMessage ? <ErrorMessage /> : ""}
 					<Box sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", mt: 1 }}>
@@ -65,30 +65,34 @@ export default function NewIncome() {
 								type='number'
 								margin='normal'
 								required
-								id='incomeAmount'
-								label='Income Amount'
-								name='incomeAmnount'
+								id='expenseAmount'
+								label='Expense Amount'
+								name='expenseAmnount'
 								autoFocus
-								onChange={(e) => setIncomeAmount(e.target.value)}
+								onChange={(e) => setExpenseAmount(e.target.value)}
 								sx={{ margin: 1 }}
 							/>
 						</Box>
 						<Box>
 							<FormControl sx={{ minWidth: 195, m: 1 }}>
 								<InputLabel id='demo-simple-select-label'>
-									Income Type*
+									Expense Type*
 								</InputLabel>
 								<Select
 									labelId='demo-simple-select-label'
 									id='demo-simple-select'
-									value={incomeType}
-									label='Income Type'
-									onChange={(e) => setIncomeType(e.target.value)}>
-									<MenuItem value={"paycheck"}>Paycheck</MenuItem>
-									<MenuItem value={"invoice"}>Invoice</MenuItem>
-									<MenuItem value={"gift"}>Gift</MenuItem>
-									<MenuItem value={"tips"}>Tips</MenuItem>
-									<MenuItem value={"other"}>other</MenuItem>
+									value={expenseType}
+									label='Expense Type'
+									onChange={(e) => setExpenseType(e.target.value)}>
+									<MenuItem value={"mortgage/rent"}>Mortgage or Rent</MenuItem>
+									<MenuItem value={"car-payment"}>Car Payemnt</MenuItem>
+									<MenuItem value={"other-car"}>Other Car Expenses</MenuItem>
+									<MenuItem value={"utilities"}>Utilities</MenuItem>
+									<MenuItem value={"insurance"}>Insurance</MenuItem>
+									<MenuItem value={"healthcare"}>Healthcare</MenuItem>
+									<MenuItem value={"shopping"}>Shopping</MenuItem>
+									<MenuItem value={"clothes"}>Clothes</MenuItem>
+									<MenuItem value={"gifts"}>Gifts</MenuItem>
 								</Select>
 							</FormControl>
 						</Box>
@@ -97,7 +101,7 @@ export default function NewIncome() {
 							variant='contained'
 							onClick={handleSubmit}
 							sx={{ margin: 1, gridColumn: "span 2" }}>
-							Add Income
+							Add Expense
 						</Button>
 					</Box>
 				</Box>

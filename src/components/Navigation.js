@@ -13,7 +13,7 @@ import { useLocation } from "react-router-dom";
 import AccountMenu from "./AccountMenu";
 import HomeIcon from "@mui/icons-material/Home";
 
-const drawerWidth = 340;
+const drawerWidth = 280;
 
 export default function PermanentDrawerLeft({ user, updateUser }) {
 	let navigate = useNavigate();

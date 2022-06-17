@@ -13,6 +13,7 @@ import RegisterPage from "./pages/RegisterPage";
 import Box from "@mui/material/Box";
 import HomePage from "./pages/HomePage";
 import NewIncome from "./pages/NewIncome";
+import NewExpense from "./pages/NewExpense";
 
 function App() {
 	const [user, setUser] = useState("");
@@ -41,6 +42,7 @@ function App() {
 							element={<RegisterPage user={user} updateUser={setUser} />}
 						/>
 						<Route path='/income/new' element={<NewIncome />} />
+						<Route path='/expense/new' element={<NewExpense />} />
 					</Routes>
 				)}
 			</Box>
