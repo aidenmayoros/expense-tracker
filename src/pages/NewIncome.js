@@ -45,7 +45,11 @@ export default function NewIncome() {
 		<ThemeProvider theme={theme}>
 			<Container
 				component='main'
-				sx={{ display: "flex", alignItems: "flex-start" }}>
+				sx={{
+					display: "flex",
+					alignItems: "center",
+					justifyContent: "center",
+				}}>
 				<CssBaseline />
 				<Box
 					sx={{

@@ -52,7 +52,7 @@ export default function HomePage() {
 		parseFloat(totalValue(incomeRows) - totalValue(expenseRows)).toFixed(2);
 
 	return (
-		<Box sx={{ width: "100%" }}>
+		<Box sx={{ width: "50%" }}>
 			<Typography variant='h5' sx={{ textAlign: "center", pt: 2 }}>
 				<b>Monthly Savings {monthlySavings} </b>
 			</Typography>
