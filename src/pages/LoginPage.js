@@ -1,20 +1,20 @@
-import * as React from "react";
-import { useState } from "react";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
-import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
-import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Logo from "../images/money-logo.png";
-import { useNavigate, useLocation } from "react-router";
-import Alert from "@mui/material/Alert";
+import * as React from 'react';
+import { useState } from 'react';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Link from '@mui/material/Link';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Logo from '../images/money-logo.png';
+import { useNavigate, useLocation } from 'react-router';
+import Alert from '@mui/material/Alert';
 
 function Copyright(props) {
 	return (
@@ -23,19 +23,19 @@ function Copyright(props) {
 			color='text.secondary'
 			align='center'
 			{...props}>
-			{"Copyright © "}
-			<Link color='inherit' href='http://www.aidenmayoros.com/'>
+			{'Copyright © '}
+			<Link color='inherit' href='https://www.aidenmayoros.com/'>
 				aidenmayoros.com
-			</Link>{" "}
+			</Link>{' '}
 			{new Date().getFullYear()}
-			{"."}
+			{'.'}
 		</Typography>
 	);
 }
 
 function ErrorMessage() {
 	return (
-		<Alert severity='error' variant='outlined' sx={{ mt: 2, width: "80%" }}>
+		<Alert severity='error' variant='outlined' sx={{ mt: 2, width: '80%' }}>
 			Please fill in all required* fields
 		</Alert>
 	);
@@ -45,17 +45,17 @@ const theme = createTheme();
 
 export default function SignIn({ updateUser }) {
 	let navigate = useNavigate();
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
 	const [showErrorMessage, setShowErrorMessage] = useState(false);
 
 	const handleSubmit = () => {
-		if (email === "" || password === "") {
+		if (email === '' || password === '') {
 			setShowErrorMessage(true);
 			return;
 		}
 		updateUser({ email: email, password: password });
-		navigate("/home");
+		navigate('/home');
 	};
 
 	return (
@@ -65,9 +65,9 @@ export default function SignIn({ updateUser }) {
 				<Box
 					sx={{
 						marginTop: 8,
-						display: "flex",
-						flexDirection: "column",
-						alignItems: "center",
+						display: 'flex',
+						flexDirection: 'column',
+						alignItems: 'center',
 					}}>
 					<Avatar src={Logo} sx={{ width: 64, height: 64 }} />
 					<Typography component='h1' variant='h5'>
@@ -110,7 +110,7 @@ export default function SignIn({ updateUser }) {
 						</Button>
 						<Grid container>
 							<Grid item xs>
-								<Link href='#' variant='body2'>
+								<Link href='/forgot-password' variant='body2'>
 									Forgot password?
 								</Link>
 							</Grid>
