@@ -2,24 +2,16 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
-import AppBar from '@mui/material/AppBar';
+import AppBar from './AppBar';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import AccountMenu from './AccountMenu';
 import HomeIcon from '@mui/icons-material/Home';
 
-const drawerWidth = 280;
-
 export default function PermanentDrawerLeft({ user, updateUser }) {
-	let navigate = useNavigate();
-	function returnToHomePage() {
-		navigate('/home');
-	}
 	const { pathname } = useLocation();
 
 	const shouldHideNavigation = [
@@ -33,15 +25,9 @@ export default function PermanentDrawerLeft({ user, updateUser }) {
 	}
 
 	return (
-		<Box sx={{ display: 'flex' }}>
-			<CssBaseline />
-			<AppBar
-				position='fixed'
-				sx={{
-					width: `calc(100% - ${drawerWidth}px)`,
-					ml: `${drawerWidth}px`,
-				}}></AppBar>
-			<Drawer
+		<Box>
+			<AppBar user={user} updateUser={updateUser} />
+			{/* <Drawer
 				sx={{
 					width: drawerWidth,
 					flexShrink: 0,
@@ -62,7 +48,7 @@ export default function PermanentDrawerLeft({ user, updateUser }) {
 						</ListItemButton>
 					</ListItem>
 				</List>
-			</Drawer>
+			</Drawer> */}
 		</Box>
 	);
 }

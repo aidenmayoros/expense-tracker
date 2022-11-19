@@ -20,7 +20,7 @@ function App() {
 
 	return (
 		<Router>
-			<Box style={{ display: 'flex', justifyContent: 'center', padding: '0' }}>
+			<Box style={{ padding: '0' }}>
 				<Navigation user={user} updateUser={setUser} />
 				{user === '' ? (
 					<Routes>
