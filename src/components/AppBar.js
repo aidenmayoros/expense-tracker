@@ -13,10 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import Logo from '../images/money-logo.png';
-import AccountMenu from './AccountMenu';
 import { useNavigate } from 'react-router-dom';
-const pages = ['Home', 'Income', 'Expenses'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar({ user, updateUser }) {
 	const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -48,11 +45,18 @@ function ResponsiveAppBar({ user, updateUser }) {
 		navigate('/login');
 	};
 
+	const pages = ['Home', 'Income', 'Expenses'];
+	const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
 	return (
 		<AppBar position='static'>
 			<Container maxWidth='xl'>
 				<Toolbar disableGutters>
-					<Avatar src={Logo} sx={{ width: 64, height: 64 }} />
+					<Avatar
+						onClick={returnToHomePage}
+						src={Logo}
+						sx={{ width: 64, height: 64, cursor: 'pointer' }}
+					/>
 					<Typography
 						onClick={returnToHomePage}
 						variant='h6'
@@ -81,29 +85,6 @@ function ResponsiveAppBar({ user, updateUser }) {
 							color='inherit'>
 							<MenuIcon />
 						</IconButton>
-						<Menu
-							id='menu-appbar'
-							anchorEl={anchorElNav}
-							anchorOrigin={{
-								vertical: 'bottom',
-								horizontal: 'left',
-							}}
-							keepMounted
-							transformOrigin={{
-								vertical: 'top',
-								horizontal: 'left',
-							}}
-							open={Boolean(anchorElNav)}
-							onClose={handleCloseNavMenu}
-							sx={{
-								display: { xs: 'block', md: 'none' },
-							}}>
-							{pages.map((page) => (
-								<MenuItem key={page} onClick={handleCloseNavMenu}>
-									<Typography textAlign='center'>{page}</Typography>
-								</MenuItem>
-							))}
-						</Menu>
 					</Box>
 					<AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
 					<Typography
@@ -121,18 +102,26 @@ function ResponsiveAppBar({ user, updateUser }) {
 							color: 'inherit',
 							textDecoration: 'none',
 							cursor: 'pointer',
-						}}>
-						LOGO
-					</Typography>
+						}}></Typography>
 					<Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-						{pages.map((page) => (
-							<Button
-								key={page}
-								onClick={handleCloseNavMenu}
-								sx={{ my: 2, color: 'white', display: 'block' }}>
-								{page}
-							</Button>
-						))}
+						<Button
+							key={'home'}
+							onClick={returnToHomePage}
+							sx={{ my: 2, color: 'white', display: 'block' }}>
+							Home
+						</Button>
+						<Button
+							key={'Income'}
+							onClick={returnToHomePage}
+							sx={{ my: 2, color: 'white', display: 'block' }}>
+							Income
+						</Button>
+						<Button
+							key={'Expenses'}
+							onClick={returnToHomePage}
+							sx={{ my: 2, color: 'white', display: 'block' }}>
+							Expenses
+						</Button>
 					</Box>
 
 					<Box sx={{ flexGrow: 0 }}>

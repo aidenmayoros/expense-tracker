@@ -10,6 +10,7 @@ import { useState } from 'react';
 import Navigation from './components/Navigation';
 import SignIn from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+import ForgotPasswordPage from './pages/ForgotPasswordPage';
 import Box from '@mui/material/Box';
 import HomePage from './pages/HomePage';
 import NewIncome from './pages/NewIncome';
@@ -31,7 +32,7 @@ function App() {
 						/>
 						<Route
 							path='/forgot-password'
-							element={<div>In construction...</div>}
+							element={<ForgotPasswordPage user={user} updateUser={setUser} />}
 						/>
 						<Route path='*' element={<Navigate to='/login' replace />} />
 					</Routes>
