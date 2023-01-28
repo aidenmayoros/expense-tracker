@@ -11,7 +11,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import Logo from '../images/money-logo.png';
 import { useNavigate } from 'react-router-dom';
 
@@ -85,8 +84,43 @@ function ResponsiveAppBar({ user, updateUser }) {
 							color='inherit'>
 							<MenuIcon />
 						</IconButton>
+						<Menu
+							id='menu-appbar'
+							anchorEl={anchorElNav}
+							anchorOrigin={{
+								vertical: 'bottom',
+								horizontal: 'left',
+							}}
+							keepMounted
+							transformOrigin={{
+								vertical: 'top',
+								horizontal: 'left',
+							}}
+							open={Boolean(anchorElNav)}
+							onClose={handleCloseNavMenu}
+							sx={{
+								display: { xs: 'block', md: 'none' },
+							}}>
+							<MenuItem
+								key={'home'}
+								onClick={returnToHomePage}
+								sx={{ my: 2, ml: 1, color: 'black', display: 'block' }}>
+								Home
+							</MenuItem>
+							<MenuItem
+								key={'income'}
+								onClick={returnToHomePage}
+								sx={{ my: 2, ml: 1, color: 'black', display: 'block' }}>
+								Income
+							</MenuItem>
+							<MenuItem
+								key={'expenses'}
+								onClick={returnToHomePage}
+								sx={{ my: 2, ml: 1, color: 'black', display: 'block' }}>
+								Expenses
+							</MenuItem>
+						</Menu>
 					</Box>
-					<AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
 					<Typography
 						onClick={returnToHomePage}
 						variant='h5'
