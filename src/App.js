@@ -20,7 +20,7 @@ function App() {
 	const [user, setUser] = useState('');
 
 	return (
-		<Router>
+		<Router basename='/expense_tracker/app'>
 			<Box style={{ padding: '0' }}>
 				<Navigation user={user} updateUser={setUser} />
 				{user === '' ? (

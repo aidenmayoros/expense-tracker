@@ -11,6 +11,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Logo from '../images/money-logo.png';
 import { useNavigate } from 'react-router';
 import Alert from '@mui/material/Alert';
+import { Link as RouterLink } from 'react-router-dom';
 import Link from '@mui/material/Link';
 
 function ErrorMessage() {
@@ -103,8 +104,9 @@ export default function RegisterPage() {
 					</Box>
 					<Link
 						variant='body2'
+						component={RouterLink}
+						to='/register'
 						underline='hover'
-						href='/register'
 						sx={{ mt: 5 }}>
 						{"Don't have an account? Sign Up"}
 					</Link>

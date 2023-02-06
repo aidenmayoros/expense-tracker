@@ -44,9 +44,6 @@ function ResponsiveAppBar({ user, updateUser }) {
 		navigate('/login');
 	};
 
-	const pages = ['Home', 'Income', 'Expenses'];
-	const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-
 	return (
 		<AppBar position='static'>
 			<Container maxWidth='xl'>
